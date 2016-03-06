@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 			},
 
 			js: {
-				src: 'assets/js/*.js',
+				src: 'assets/js/general.js',
 				dest: '',
 				expand: true, 
 				ext: '.min.js',
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 			},
 
 			js: {
-				files: ['assets/js/*.js'],
+				files: ['assets/js/general.js'],
 				tasks: ['uglify']
 			}
 		}

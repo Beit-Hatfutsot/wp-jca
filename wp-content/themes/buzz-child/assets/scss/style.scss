@@ -1,1 +1,147 @@
 @import "../../../buzz/assets/css/style.min.css";
+
+/**********/
+/* header */
+/**********/
+
+#header {
+	.logo {
+		float: none !important;
+		text-align: center;
+	}
+}
+
+.sticky-header {
+	.logo {
+		margin: 0 !important;
+
+		.logo-text {
+			float: left;
+
+			a {
+				line-height: 60px;
+			}
+		}
+	}
+}
+
+#header,
+.sticky-header {
+	nav.nav-main {
+		float: none !important;
+	}
+
+	.navbar-toggle {
+		margin: 18px 0;
+		background-color: transparent;
+	}
+}
+
+/******************************/
+/* widget: Media Posts Widget */
+/******************************/
+
+.Media_Posts_Widget {
+	.archive-link {
+		float: right;
+		margin: 20px 0;
+	}
+}
+
+/**************/
+/* responsive */
+/**************/
+
+@media (min-width: 768px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	.sticky-header {
+		.logo {
+			display: none;
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header,
+	.sticky-header {
+		nav.nav-main {
+			.sf-menu {
+				& > li {
+					padding: 0 1em;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header,
+	.sticky-header {
+		nav.nav-main {
+			.sf-menu {
+				& > li {
+					padding: 0 .25em;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header {
+		.logo {
+			margin: 0 !important;
+
+			.logo-text {
+				float: left;
+
+				a {
+					line-height: 60px;
+				}
+			}
+		}
+	}
+
+	/******************************/
+	/* widget: Media Posts Widget */
+	/******************************/
+
+	.Media_Posts_Widget {
+		.media-src {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header,
+	.sticky-header {
+		.logo-text a {
+			font-size: 14px;
+		}
+	}
+}
