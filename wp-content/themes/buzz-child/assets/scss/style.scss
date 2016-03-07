@@ -1,5 +1,13 @@
 @import "../../../buzz/assets/css/style.min.css";
 
+/***********/
+/* general */
+/***********/
+
+body {
+	word-wrap: break-word;
+}
+
 /**********/
 /* header */
 /**********/
@@ -7,7 +15,20 @@
 #header {
 	.logo {
 		float: none !important;
-		text-align: center;
+	}
+
+	& > .container {
+		position: relative;
+
+		.bh-logo {
+			position: absolute;
+			top: 5px;
+			right: 15px;
+			width: 191px;
+			height: 80px;
+			background: url("../images/logo-bh-en.png") no-repeat 100% 50%;
+			cursor: pointer;
+		}
 	}
 }
 
@@ -25,10 +46,35 @@
 	}
 }
 
+/*************/
+/* main menu */
+/*************/ 
+
 #header,
 .sticky-header {
 	nav.nav-main {
 		float: none !important;
+
+		.sf-menu {
+			& > li {
+				&:first-child {
+					padding-left: 0;
+
+					& > a {
+						padding-left: 0;
+					}
+				}
+
+				ul.sub-menu {
+					li {
+						a {
+							padding: 1em 1.5em;
+							line-height: 1.5em;
+						}
+					}
+				}
+			}
+		}
 	}
 
 	.navbar-toggle {
@@ -45,6 +91,96 @@
 	.archive-link {
 		float: right;
 		margin: 20px 0;
+	}
+}
+
+/**********/
+/* footer */
+/**********/
+
+#footer-widgets {
+	position: relative;
+
+	/**********/
+	/* credit */
+	/**********/
+
+	.jca-credit {
+		margin: 0 auto;
+		padding-left: 75px;
+		max-width: 600px;
+		background: url("../images/logo.png") no-repeat 0 50%;
+	}
+
+	/***************/
+	/* footer menu */
+	/***************/
+
+	#menu-footer-menu {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-align: center;
+
+		li {
+			padding-left: 3px;
+			line-height: 80px;
+			color: #95a5a6;
+			display: inline;
+
+			&:after {
+				content: "|";
+				padding-left: 5px;
+			}
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: -5px;
+		left: 0;
+		width: 100%;
+		height: 5px;
+		background-color: #999;
+		-webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,.25);
+		box-shadow:         0 4px 10px 0 rgba(0,0,0,.25);
+	}
+
+	/*********************/
+	/* shortcode bh logo */
+	/*********************/
+
+	.shortcode-bh-logo {
+		float: right;
+	}
+}
+
+#footer-copyright {
+	display: none;
+}
+
+/**************/
+/* shortcodes */
+/**************/
+
+.shortcode {
+	&.shortcode-bh-logo {
+		.bh-logo {
+			width: 191px;
+			height: 80px;
+			background: url("../images/logo-bh-en.png") no-repeat 0 0;
+		}
 	}
 }
 
@@ -71,6 +207,18 @@
 	/* header */
 	/**********/
 
+	#header {
+		& > .container {
+			.bh-logo {
+				background-size: 75%;
+			}
+		}
+	}
+
+	/*************/
+	/* main menu */
+	/*************/
+
 	#header,
 	.sticky-header {
 		nav.nav-main {
@@ -89,9 +237,25 @@
 	/* header */
 	/**********/
 
+	#header {
+		& > .container {
+			.bh-logo {
+				background-position: 100% 0;
+				background-size: 65%;
+			}
+		}
+	}
+
+	/*************/
+	/* main menu */
+	/*************/
+
 	#header,
 	.sticky-header {
 		nav.nav-main {
+			position: relative;
+			z-index: 1;
+
 			.sf-menu {
 				& > li {
 					padding: 0 .25em;
@@ -108,6 +272,12 @@
 	/**********/
 
 	#header {
+		& > .container {
+			.bh-logo {
+				display: none;
+			}
+		}
+
 		.logo {
 			margin: 0 !important;
 
@@ -128,6 +298,45 @@
 	.Media_Posts_Widget {
 		.media-src {
 			margin-bottom: 20px;
+		}
+	}
+
+	/**********/
+	/* footer */
+	/**********/
+
+	#footer-widgets {
+
+		/**********/
+		/* credit */
+		/**********/
+
+		.jca-credit {
+			padding: 90px 0 0;
+			background-position: 50% 0;
+		}
+
+		/***************/
+		/* footer menu */
+		/***************/
+
+		#menu-footer-menu {
+			li {
+				line-height: normal;
+			}
+		}
+
+		/*********************/
+		/* shortcode bh logo */
+		/*********************/
+
+		.shortcode-bh-logo {
+			float: none;
+
+			.bh-logo {
+				width: 100%;
+				background-position: 50% 0;
+			}
 		}
 	}
 }

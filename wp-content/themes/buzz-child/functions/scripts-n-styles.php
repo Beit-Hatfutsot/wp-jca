@@ -9,6 +9,14 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/**
+ * JCA_register_scripts_n_styles
+ *
+ * Register scripts and styles
+ *
+ * @param	N/A
+ * @return	N/A
+ */
 function JCA_register_scripts_n_styles() {
 
 	if ( ! is_admin() ) {
@@ -21,11 +29,26 @@ function JCA_register_scripts_n_styles() {
 }
 add_action('init', 'JCA_register_scripts_n_styles');
 
-// website
+/**
+ * JCA_register_styles
+ *
+ * Register frontend styles
+ *
+ * @param	N/A
+ * @return	N/A
+ */
 function JCA_register_styles() {}
 
+/**
+ * JCA_register_scripts
+ *
+ * Register frontend scripts
+ *
+ * @param	N/A
+ * @return	N/A
+ */
 function JCA_register_scripts() {
 
-//	wp_enqueue_script( 'general',	JS_DIR . '/general.min.js',		array('jquery'),	VERSION,	true );
+	wp_enqueue_script( 'general',	JS_DIR . '/general.min.js',		array('jquery'),	VERSION,	true );
 
 }
