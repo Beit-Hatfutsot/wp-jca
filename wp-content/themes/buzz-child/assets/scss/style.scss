@@ -1,4 +1,9 @@
+/***********/
+/* imports */
+/***********/
+
 @import "../../../buzz/assets/css/style.min.css";
+@import "functions";
 
 /***********/
 /* general */
@@ -94,6 +99,16 @@ body {
 	}
 }
 
+/*************/
+/* galleries */
+/*************/
+
+.gallery {
+	.wp-caption-text {
+		display: none;
+	}
+}
+
 /**********/
 /* footer */
 /**********/
@@ -175,11 +190,51 @@ body {
 /**************/
 
 .shortcode {
+
+	/***********/
+	/* bh-logo */
+	/***********/
+
 	&.shortcode-bh-logo {
 		.bh-logo {
 			width: 191px;
 			height: 80px;
 			background: url("../images/logo-bh-en.png") no-repeat 0 0;
+		}
+	}
+
+	/*********************/
+	/* language-switcher */
+	/*********************/
+
+	&.shortcode-language-switcher {
+		& > span {
+			line-height: 80px;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			display: inline;
+
+			li {
+				margin-left: 5px;
+				display: inline-block;
+
+				a {
+					width: 30px;
+					line-height: 30px;
+					font-size: 12px;
+					font-weight: 700;
+					color: #FFF !important;
+					background-color: #999;
+					text-align: center;
+					text-decoration: none;
+					@include border-radius(50%);
+					display: block;
+				}
+			}
 		}
 	}
 }
@@ -332,10 +387,35 @@ body {
 
 		.shortcode-bh-logo {
 			float: none;
+		}
+	}
 
+	/**************/
+	/* shortcodes */
+	/**************/
+
+	.shortcode {
+
+		/***********/
+		/* bh-logo */
+		/***********/
+
+		&.shortcode-bh-logo {
 			.bh-logo {
 				width: 100%;
 				background-position: 50% 0;
+			}
+		}
+
+		/*********************/
+		/* language-switcher */
+		/*********************/
+
+		&.shortcode-language-switcher {
+			text-align: center;
+
+			& > span {
+				line-height: normal;
 			}
 		}
 	}

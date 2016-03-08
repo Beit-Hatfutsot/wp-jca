@@ -29,3 +29,9 @@ define( 'TEMPLATE',		get_stylesheet_directory_uri() );
 define( 'HOME',			home_url( '/' ) );
 define( 'CSS_DIR',		TEMPLATE . '/assets/css' );
 define( 'JS_DIR',		TEMPLATE . '/assets/js' );
+
+// languages
+function jca_theme_setup() {
+	load_child_theme_textdomain('JCA', get_stylesheet_directory() . '/languages');
+}
+add_action('after_setup_theme', 'jca_theme_setup');

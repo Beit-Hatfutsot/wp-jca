@@ -18,13 +18,59 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @return	(string)
  */
 function bh_logo() {
+
+	$current_lang	= get_locale();
+	$bh_siteurl		= 'http://www.bh.org.il/';
+
+	if ($current_lang == 'he_IL') {
+		$bh_siteurl .= 'he/';
+	}
+
 	$output =	'<div class="shortcode shortcode-bh-logo">
-					<a href="http://www.bh.org.il" target="_blank">
+					<a href="' . $bh_siteurl . '" target="_blank">
 						<div class="bh-logo"></div>
 					</a>
 				</div>';
 
 	// return
 	return $output;
+
 }
-add_shortcode( 'bh-logo', 'bh_logo' );
+add_shortcode('bh-logo', 'bh_logo');
+
+/**
+ * language_switcher
+ *
+ * Shortcode to display language switcher ([language-switcher])
+ *
+ * @param	N/A
+ * @return	(string)
+ */
+function language_switcher() {
+
+	if ( ! function_exists('pll_the_languages') )
+		return;
+
+	global $post;
+
+	$args = array(
+		'echo'						=> 0,
+		'hide_if_no_translation'	=> 1,
+		'hide_current'				=> 1,
+		'post_id'					=> $post->ID
+	);
+	$languages = pll_the_languages($args);
+
+	if ( ! $languages )
+		return;
+
+	$output =	'<div class="shortcode shortcode-language-switcher">
+					<span>' . __('Change language', 'JCA') . ':</span>
+					<ul>' . $languages . '</ul>
+				</div>';
+
+	// return
+	return $output;
+
+}
+add_shortcode('language-switcher', 'language_switcher');
