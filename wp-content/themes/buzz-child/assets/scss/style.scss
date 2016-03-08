@@ -60,14 +60,14 @@ body {
 	nav.nav-main {
 		float: none !important;
 
+		/****************/
+		/* regular menu */
+		/****************/
+
 		.sf-menu {
 			& > li {
 				&:first-child {
 					padding-left: 0;
-
-					& > a {
-						padding-left: 0;
-					}
 				}
 
 				ul.sub-menu {
@@ -80,11 +80,74 @@ body {
 				}
 			}
 		}
+
+		/***************/
+		/* mobile menu */
+		/***************/
+
+		.mobile-menu {
+			& > li {
+				& > a {
+					background-color: #ddd;
+				}
+			}
+
+			.sub-menu {
+				li {
+					a {
+						padding-left: 30px;
+					}
+
+					.sub-menu {
+						li {
+							a {
+								padding-left: 45px;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	.navbar-toggle {
 		margin: 18px 0;
 		background-color: transparent;
+	}
+}
+
+/***********/
+/* sidebar */
+/***********/
+
+#sidebar {
+
+	/************/
+	/* sub menu */
+	/************/
+
+	.sub-page-menu {
+		li {
+			margin-bottom: 7px;
+			list-style: none;
+
+			&.first-page-item {
+				display: none;
+			}
+
+			a {
+				padding-left: 10px;
+				color: #5e5e5e;
+				border-left: 2px solid #5e5e5e;
+				display: block;
+			}
+
+			a:hover,
+			&.current_page_item a {
+				color: #a99f71;
+				border-left-color: #a99f71;
+			}
+		}
 	}
 }
 
@@ -131,7 +194,7 @@ body {
 	/* footer menu */
 	/***************/
 
-	#menu-footer-menu {
+	.menu {
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -265,7 +328,7 @@ body {
 	#header {
 		& > .container {
 			.bh-logo {
-				background-size: 75%;
+				background-size: 75% !important;
 			}
 		}
 	}
@@ -296,7 +359,7 @@ body {
 		& > .container {
 			.bh-logo {
 				background-position: 100% 0;
-				background-size: 65%;
+				background-size: 65% !important;
 			}
 		}
 	}
@@ -367,15 +430,15 @@ body {
 		/**********/
 
 		.jca-credit {
-			padding: 90px 0 0;
-			background-position: 50% 0;
+			padding: 90px 0 0 !important;
+			background-position: 50% 0 !important;
 		}
 
 		/***************/
 		/* footer menu */
 		/***************/
 
-		#menu-footer-menu {
+		.menu {
 			li {
 				line-height: normal;
 			}
@@ -386,7 +449,7 @@ body {
 		/*********************/
 
 		.shortcode-bh-logo {
-			float: none;
+			float: none !important;
 		}
 	}
 
@@ -402,8 +465,8 @@ body {
 
 		&.shortcode-bh-logo {
 			.bh-logo {
-				width: 100%;
-				background-position: 50% 0;
+				width: 100% !important;
+				background-position: 50% 0 !important;
 			}
 		}
 

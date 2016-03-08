@@ -1,0 +1,229 @@
+/***********/
+/* imports */
+/***********/
+
+@import "../../../buzz/assets/css/rtl.min.css";
+@import "functions";
+
+/**********/
+/* header */
+/**********/
+
+#header {
+	& > .container {
+		.bh-logo {
+			left: 15px;
+			right: auto;
+			width: 188px;
+			background: url("../images/logo-bh-he.png") no-repeat 0 50%;
+		}
+	}
+}
+
+.sticky-header {
+	.logo {
+		.logo-text {
+			float: right;
+		}
+	}
+}
+
+/*************/
+/* main menu */
+/*************/ 
+
+#header,
+.sticky-header {
+	nav.nav-main {
+
+		/****************/
+		/* regular menu */
+		/****************/
+
+		.sf-menu {
+			& > li {
+				&:first-child {
+					padding-left: 1.5em;
+					padding-right: 0;
+				}
+			}
+		}
+
+		/***************/
+		/* mobile menu */
+		/***************/
+
+		.mobile-menu {
+			.sub-menu {
+				li {
+					a {
+						padding-left: 15px;
+						padding-right: 30px;
+					}
+
+					.sub-menu {
+						li {
+							a {
+								padding-left: 15px;
+								padding-right: 45px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/***********/
+/* sidebar */
+/***********/
+
+#sidebar {
+
+	/************/
+	/* sub menu */
+	/************/
+
+	.sub-page-menu {
+		li {
+			a {
+				padding-left: 0;
+				padding-right: 10px;
+				border-left: 0;
+				border-right: 2px solid #5e5e5e;
+			}
+
+			a:hover,
+			&.current_page_item a {
+				border-right-color: #a99f71;
+			}
+		}
+	}
+}
+
+/******************************/
+/* widget: Media Posts Widget */
+/******************************/
+
+.Media_Posts_Widget {
+	.archive-link {
+		float: left;
+	}
+}
+
+/**********/
+/* footer */
+/**********/
+
+#footer-widgets {
+
+	/**********/
+	/* credit */
+	/**********/
+
+	.jca-credit {
+		padding-left: 0;
+		padding-right: 75px;
+		background-position: 100% 50%;
+	}
+
+	/***************/
+	/* footer menu */
+	/***************/
+
+	.menu {
+		li {
+			padding-left: 0;
+			padding-right: 3px;
+
+			&:after {
+				padding-left: 0;
+				padding-right: 5px;
+			}
+
+			&:first-child {
+				padding-right: 0;
+			}
+		}
+	}
+
+	/*********************/
+	/* shortcode bh logo */
+	/*********************/
+
+	.shortcode-bh-logo {
+		float: left;
+	}
+}
+
+/**************/
+/* shortcodes */
+/**************/
+
+.shortcode {
+
+	/***********/
+	/* bh-logo */
+	/***********/
+
+	&.shortcode-bh-logo {
+		.bh-logo {
+			width: 188px;
+			background: url("../images/logo-bh-he.png") no-repeat 0 0;
+		}
+	}
+
+	/*********************/
+	/* language-switcher */
+	/*********************/
+
+	&.shortcode-language-switcher {
+		ul {
+			li {
+				margin-left: 0;
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+/**************/
+/* responsive */
+/**************/
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header {
+		& > .container {
+			.bh-logo {
+				background-position: 0 0;
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header {
+		.logo {
+			.logo-text {
+				float: right;
+			}
+		}
+	}
+}
+
+@media (max-width: 480px) {}

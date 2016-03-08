@@ -37,7 +37,13 @@ add_action('init', 'JCA_register_scripts_n_styles');
  * @param	N/A
  * @return	N/A
  */
-function JCA_register_styles() {}
+function JCA_register_styles() {
+
+	if ( is_rtl() ) {
+		wp_enqueue_style( 'bootstrap-rtl',	CSS_DIR . '/lib/bootstrap-rtl.min.css',		array('pojo-css-framework'),		VERSION );
+	}
+
+}
 
 /**
  * JCA_register_scripts
