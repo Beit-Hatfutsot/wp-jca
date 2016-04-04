@@ -122,6 +122,11 @@ class Pojo_Forms_Shortcode {
 					$field_attributes['min'] = $field['number_min'];
 					$field_attributes['max'] = $field['number_max'];
 				}
+				
+				if ( 'tel' === $field['type'] ) {
+					$field_attributes['pattern'] = '[0-9\.\+\-\(\)\*\#]+';
+					$field_attributes['title'] = __( 'Only phone numbers allowed.', 'pojo-forms' );
+				}
 	
 				// Remove empty values
 				$field_attributes = array_filter( $field_attributes );
@@ -381,7 +386,24 @@ class Pojo_Forms_Shortcode {
 			} elseif ( empty( $recaptcha_secret_key ) ) {
 				$recaptcha_html .= __( 'ERROR for site owner: Invalid secret key', 'pojo-forms' );
 			} else {
-				$recaptcha_html .= '<div class="g-recaptcha" data-sitekey="' . $recaptcha_site_key . '"></div>';
+				wp_enqueue_script( 'recaptcha-api' );
+				
+				$recaptcha_attributes = array(
+					'class' => 'g-recaptcha',
+					'data-sitekey' => $recaptcha_site_key,
+				);
+				
+				$recaptcha_style = atmb_get_field( 'form_recaptcha_style', $form->ID );
+				if ( ! empty( $recaptcha_style ) ) {
+					$recaptcha_attributes['data-theme'] = $recaptcha_style;
+				}
+				
+				$recaptcha_size = atmb_get_field( 'form_recaptcha_size', $form->ID );
+				if ( ! empty( $recaptcha_size ) ) {
+					$recaptcha_attributes['data-size'] = $recaptcha_size;
+				}
+				
+				$recaptcha_html .= '<div ' . pojo_array_to_attributes( $recaptcha_attributes ) . '></div>';
 			}
 
 			$recaptcha_html .= '</div>';
