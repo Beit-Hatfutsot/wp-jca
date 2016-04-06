@@ -172,6 +172,83 @@ body {
 	}
 }
 
+/*****************/
+/* personalities */
+/*****************/
+
+.personalities-data {
+	.personalities-index-entry {
+
+		/**********/
+		/* person */
+		/**********/
+
+		.person {
+			position: relative;
+			margin-bottom: 20px;
+			padding: 10px;
+			border: 1px solid #95a5a6;
+			cursor: pointer;
+
+			/**********/
+			/* toggle */
+			/**********/
+
+			.toggle {
+				position: absolute;
+				top: 11px;
+				left: 10px;
+				font-size: 30px;
+				font-weight: bold;
+			}
+
+			/*********/
+			/* title */
+			/*********/
+
+			h3 {
+				margin: 0 0 10px;
+				padding-left: 25px;
+				color: #a97171;
+			}
+
+			/**********************/
+			/* person occupations */
+			/**********************/
+
+			.person-occupations {
+				padding-left: 25px;
+				font-style: italic;
+				font-size: 0.9em;
+			}
+
+			/**********************/
+			/* person communities */
+			/**********************/
+
+			.person-communities {
+				padding-left: 25px;
+			}
+
+			/***************/
+			/* person info */
+			/***************/
+
+			.person-info {
+				margin-top: 20px;
+				padding-left: 25px;
+				display: none;
+			}
+
+			&.active {
+				.person-info {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
 /**********/
 /* footer */
 /**********/

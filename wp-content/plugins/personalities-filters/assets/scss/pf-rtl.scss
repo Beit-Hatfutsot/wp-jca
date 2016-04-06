@@ -1,0 +1,35 @@
+/**
+ * Widget frontend styling - RTL
+ */
+
+.pf-widget {
+
+	/***********/
+	/* filters */
+	/***********/
+
+	.pf-filter {
+
+		/******************/
+		/* letters filter */
+		/******************/
+
+		&.pf-letters-filter {
+			ul {
+				li {
+					float: right;
+				}
+			}
+		}
+	}
+
+	/****************/
+	/* clear button */
+	/****************/
+
+	.button-clear {
+		a {
+			float: left;
+		}
+	}
+}

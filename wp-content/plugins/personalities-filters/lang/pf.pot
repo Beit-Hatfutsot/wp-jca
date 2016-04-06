@@ -1,0 +1,49 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced WooCommerce Products Filter 1.0\n"
+"POT-Creation-Date: 2016-04-06 10:36+0300\n"
+"PO-Revision-Date: 2016-02-24 10:56+0200\n"
+"Last-Translator: Nir Goldberg <nirg@bh.org.il>\n"
+"Language-Team: HTMLine <nir@htmline.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-KeywordsList: __;_e;_;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../personalities-filters.php:50 ../widgets/pf/pf-widget.php:35
+msgid "Personalities Filters"
+msgstr ""
+
+#: ../templates/pf-widget/pf-widget-communities-filter.php:37
+msgid "Choose a community"
+msgstr ""
+
+#: ../templates/pf-widget/pf-widget-occupations-filter.php:37
+msgid "Choose an occupation"
+msgstr ""
+
+#: ../widgets/pf/pf-widget-front.php:190
+msgid "Clear"
+msgstr ""
+
+#: ../widgets/pf/pf-widget.php:37
+msgid "Personalities Filters - Widget for JCA project"
+msgstr ""
+
+#: ../widgets/pf/pf-widget.php:163
+msgid "Title"
+msgstr ""
+
+#: ../widgets/pf/pf-widget.php:164
+msgid "Communities Title"
+msgstr ""
+
+#: ../widgets/pf/pf-widget.php:165
+msgid "Occupations Title"
+msgstr ""

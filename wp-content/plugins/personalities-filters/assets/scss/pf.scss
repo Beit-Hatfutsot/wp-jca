@@ -1,0 +1,94 @@
+/**
+ * Widget frontend styling
+ */
+
+.pf-widget {
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid #7f8c8d;
+
+	/***********/
+	/* filters */
+	/***********/
+
+	.pf-filter {
+
+		/***********/
+		/* general */
+		/***********/
+
+		.pf-filter-title {
+			h3 {
+				margin: 0;
+			}
+		}
+
+		/******************/
+		/* letters filter */
+		/******************/
+
+		&.pf-letters-filter {
+			ul {
+				margin: 0;
+				padding: 0;
+
+				li {
+					float: left;
+					margin: 2.5px;
+					width: 35px;
+					height: 35px;
+					border: 1px solid #7f8c8d;
+					text-align: center;
+					list-style: none !important;
+					cursor: pointer;
+
+					&:hover,
+					&.active {
+						span {
+							color: #FFF;
+						}
+					}
+
+					&:hover { background-color: #718da9; }
+					&.active { background-color: #2c3e50; }
+
+					span {
+						line-height: 33px;
+						font-size: 20px;
+						font-weight: bold;
+						color: #5e5e5e;
+						display: block;
+					}
+				}
+			}
+		}
+
+		/**********************/
+		/* communities filter */
+		/**********************/
+
+		&.pf-communities-filter {
+			margin-top: 10px;
+		}
+
+		/**********************/
+		/* occupations filter */
+		/**********************/
+
+		&.pf-occupations-filter {
+			margin-top: 10px;
+		}
+	}
+
+	/****************/
+	/* clear button */
+	/****************/
+
+	.button-clear {
+		margin-top: 41px;
+
+		a {
+			float: right;
+		}
+	}
+}

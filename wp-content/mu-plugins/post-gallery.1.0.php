@@ -54,7 +54,7 @@ class Post_Gallery_Widget extends WP_Widget
 				$output .= '<figure class="gallery-item">
 								<div class="gallery-icon landscape">
 									<a data-size="' . $image['width'] . 'x' . $image['height'] . '" href="' . $image['url'] . '" role="link">
-										<img width="' . $image['sizes']['thumbnail-width'] . '" height="' . $image['sizes']['thumbnail-height'] . '" src="' . $image['sizes']['thumbnail'] . '" class="attachment-thumbnail size-thumbnail" alt="' . $image['alt'] . '">
+										<img width="' . $image['width'] . '" height="' . $image['height'] . '" src="' . $image['url'] . '" class="attachment-full size-full" alt="' . $image['alt'] . '">
 									</a>' .
 									( $image['caption'] ? '<figcaption class="wp-caption-text gallery-caption">' . $image['caption'] . '</figcaption>' : '' ) .
 								'</div>

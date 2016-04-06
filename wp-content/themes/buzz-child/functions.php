@@ -17,3 +17,12 @@ require_once('functions/acf.php');
 
 // shortcodes
 require_once('functions/shortcodes.php');
+
+// post-types
+require_once('functions/post-types.php');
+
+// taxonomies
+require_once('functions/taxonomies.php');
+
+// sidebars
+require_once('functions/sidebars.php');
