@@ -5,6 +5,7 @@ $(document).ready(function() {
 
 	// personalities
 	$('.personalities-data .person').bind('click', jca_toggle_person);
+	$('.personalities-data .person a').click(function(e) { e.stopPropagation(); });
 
 	// language switcher
 	$('.shortcode-language-switcher li').each(function() {
