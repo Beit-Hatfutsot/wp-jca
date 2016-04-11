@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JCA\n"
-"POT-Creation-Date: 2016-03-07 15:50+0200\n"
-"PO-Revision-Date: 2016-03-07 15:59+0200\n"
+"POT-Creation-Date: 2016-04-10 23:58+0300\n"
+"PO-Revision-Date: 2016-04-10 23:59+0300\n"
 "Last-Translator: \n"
 "Language-Team: BH Online <nirg@bh.org.il>\n"
 "Language: he_IL\n"
@@ -15,6 +15,10 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: functions/shortcodes.php:65
+#: functions/shortcodes.php:68
 msgid "Change language"
 msgstr "שינוי שפה"
+
+#: views/page/communities.php:21
+msgid "Communities Quick Links"
+msgstr "קישורים מהירים לקהילות"

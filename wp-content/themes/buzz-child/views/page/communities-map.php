@@ -10,8 +10,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // get map data
-$map			= get_field('acf-map_image');
-$communities	= get_field('acf-map_communities');
+global $communities;
+$map = get_field('acf-map_image');
 
 if ( ! $map )
 	return;

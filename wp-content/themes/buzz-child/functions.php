@@ -26,3 +26,6 @@ require_once('functions/taxonomies.php');
 
 // sidebars
 require_once('functions/sidebars.php');
+
+// helper functions
+require_once('functions/helper-functions.php');

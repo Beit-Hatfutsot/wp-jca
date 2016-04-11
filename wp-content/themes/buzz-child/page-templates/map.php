@@ -30,10 +30,17 @@ get_header(); ?>
 		<div class="entry-content">
 
 			<?php if ( class_exists('acf') ) {
-				get_template_part('views/page/map');
+				global $post, $communities;
+				$communities = get_field('acf-map_communities');
 
-				global $post;
+				// communities map
+				get_template_part('views/page/communities' , 'map');
+
+				// content
 				echo apply_filters('the_content', $post->post_content);
+
+				// communities list
+				get_template_part('views/page/communities', 'list');
 			} ?>
 
 		</div>

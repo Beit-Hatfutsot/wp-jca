@@ -51,7 +51,7 @@ if ($index !== false) {
 	}
 
 	if ($communities) {
-		$person .= '<div class="person-communities">' . implode( ', ', array_map(function($c) { return '<a href="' . get_the_permalink($c->ID) . '">' . $c->post_title . '</a>'; }, $communities) ) . '</div>';
+		$person .= '<div class="person-communities">' . implode( ', ', array_map(function($c) { return '<a href="' . get_the_permalink($c->ID) . '" target="_blank">' . $c->post_title . '</a>'; }, $communities) ) . '</div>';
 	}
 
 	$person .= '<div class="person-info">' . apply_filters( 'the_content', get_the_content() ) . '</div></div>';
