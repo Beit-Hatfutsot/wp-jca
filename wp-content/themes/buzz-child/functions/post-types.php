@@ -21,6 +21,7 @@ function JCA_register_posttypes() {
 
 	JCA_register_posttype_community();
 	JCA_register_posttype_person();
+	JCA_register_posttype_synagogue();
 
 }
 add_action('init', 'JCA_register_posttypes');
@@ -118,5 +119,53 @@ function JCA_register_posttype_person() {
 		'query_var'				=> true
 	);
 	register_post_type('person', $args);
+
+}
+
+/**
+ * JCA_register_posttype_synagogue
+ *
+ * Register post type synagogue
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function JCA_register_posttype_synagogue() {
+
+	$labels = array(
+		'name'					=> 'Synagogues',
+		'singular_name'			=> 'Synagogue',
+		'menu_name'				=> 'Synagogues',
+		'all_items'				=> 'All Synagogues',
+		'add_new'				=> 'Add New',
+		'add_new_item'			=> 'Add New Synagogue',
+		'edit_item'				=> 'Edit Synagogue',
+		'new_item'				=> 'New Synagogue',
+		'view_item'				=> 'View Synagogue',
+		'search_items'			=> 'Search Synagogues',
+		'not_found'				=> 'No Synagogues Found',
+		'not_found_in_trash'	=> 'No Synagogues Found in Trash'
+	);
+	
+	$args = array(
+		'labels'				=> $labels,
+		'public'				=> true,
+		'exclude_from_search'	=> false,
+		'publicly_queryable'	=> true,
+		'show_ui'				=> true,
+		'show_in_nav_menus'		=> true,
+		'show_in_menu'			=> true,
+		'show_in_admin_bar'		=> true,
+		'menu_position'			=> 20,
+		'menu_icon'				=> 'dashicons-building',
+		'capability_type'		=> 'post',
+		'hierarchical'			=> true,
+		'supports'				=> array('title', 'editor', 'revisions'),
+		'taxonomies'			=> array(),
+		'has_archive'			=> true,
+		'rewrite'				=> array('slug' => 'synagogue', 'with_front' => false),
+		'query_var'				=> true
+	);
+	register_post_type('synagogue', $args);
 
 }

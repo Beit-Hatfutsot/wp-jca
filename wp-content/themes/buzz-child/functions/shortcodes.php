@@ -74,3 +74,40 @@ function language_switcher() {
 
 }
 add_shortcode('language-switcher', 'language_switcher');
+
+/**
+ * community_synagogues
+ *
+ * Shortcode to display community synagogues list ([community-synagogues])
+ *
+ * @param	N/A
+ * @return	(string)
+ */
+function community_synagogues() {
+
+	if ( get_post_type() != 'community' || ! class_exists('acf') )
+		return;
+
+	global $post;
+
+	$synagogues = get_field('acf-communities-related_synagogues', $post->ID);
+
+	if ( ! $synagogues )
+		return;
+
+	$synagogues_list = array();
+
+	foreach ($synagogues as $s) {
+		$synagogues_list[] = '<li><a href="' . get_permalink($s->ID) . '" target="_blank">' . $s->post_title . '</a></li>';
+	}
+
+	$output =	'<div class="shortcode shortcode-community-synagogues">
+					<h3>' . __('Synagogues', 'JCA') . '</h3>
+					<ul>' . implode(' ', $synagogues_list) . '</ul>
+				</div>';
+
+	// return
+	return $output;
+
+}
+add_shortcode('community-synagogues', 'community_synagogues');
