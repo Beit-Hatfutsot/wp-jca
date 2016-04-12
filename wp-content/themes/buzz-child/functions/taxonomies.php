@@ -19,7 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 function JCA_register_taxonomies() {
 
+	JCA_register_taxonomy_era();
 	JCA_register_taxonomy_occupation();
+	JCA_register_taxonomy_timezone();
 
 }
 add_action('init', 'JCA_register_taxonomies');
@@ -32,26 +34,74 @@ add_action('init', 'JCA_register_taxonomies');
  * @param	N/A
  * @return	N/A
  */
+function JCA_register_taxonomy_era() {
+
+	$labels = array(
+		'name'							=> __('Eras', 'JCA'),
+		'singular_name'					=> __('Era', 'JCA'),
+		'menu_name'						=> __('Eras', 'JCA'),
+		'all_items'						=> __('All Eras', 'JCA'),
+		'edit_item'						=> __('Edit Era', 'JCA'),
+		'view_item'						=> __('View Era', 'JCA'),
+		'update_item'					=> __('Update Era', 'JCA'),
+		'add_new_item'					=> __('Add New Era', 'JCA'),
+		'new_item_name'					=> __('New Era Name', 'JCA'),
+		'parent_item'					=> __('Parent Era', 'JCA'),
+		'parent_item_colon'				=> __('Parent Era:', 'JCA'),
+		'search_items'					=> __('Search Eras', 'JCA'),
+		'popular_items'					=> __('Popular Eras', 'JCA'),
+		'separate_items_with_commas'	=> __('Separate Eras with commas', 'JCA'),
+		'add_or_remove_items'			=> __('Add or remove Eras', 'JCA'),
+		'choose_from_most_used'			=> __('Choose from the most used Eras', 'JCA'),
+		'not_found'						=> __('No Eras found', 'JCA')
+	);
+	
+	$args = array(
+		'labels'						=> $labels,
+		'public'						=> true,
+		'show_ui'						=> true,
+		'show_in_nav_menus'				=> true,
+		'show_tagcloud'					=> true,
+		'show_admin_column'				=> true,
+		'hierarchical'					=> true,
+		'query_var'						=> true,
+		'rewrite'						=> array(
+			'slug'						=> 'era',
+			'with_front'				=> false
+		)
+	);
+	register_taxonomy('era', array('community', 'synagogue'), $args);
+
+}
+
+/**
+ * JCA_register_taxonomy_occupation
+ *
+ * Register taxonomy occupation
+ *
+ * @param	N/A
+ * @return	N/A
+ */
 function JCA_register_taxonomy_occupation() {
 
 	$labels = array(
-		'name'							=> 'Occupations',
-		'singular_name'					=> 'Occupation',
-		'menu_name'						=> 'Occupations',
-		'all_items'						=> 'All Occupations',
-		'edit_item'						=> 'Edit Occupation',
-		'view_item'						=> 'View Occupation',
-		'update_item'					=> 'Update Occupation',
-		'add_new_item'					=> 'Add New Occupation',
-		'new_item_name'					=> 'New Occupation Name',
-		'parent_item'					=> 'Parent Occupation',
-		'parent_item_colon'				=> 'Parent Occupation:',
-		'search_items'					=> 'Search Occupations',
-		'popular_items'					=> 'Popular Occupations',
-		'separate_items_with_commas'	=> 'Separate Occupations with commas',
-		'add_or_remove_items'			=> 'Add or remove Occupations',
-		'choose_from_most_used'			=> 'Choose from the most used Occupations',
-		'not_found'						=> 'No Occupations found'
+		'name'							=> __('Occupations', 'JCA'),
+		'singular_name'					=> __('Occupation', 'JCA'),
+		'menu_name'						=> __('Occupations', 'JCA'),
+		'all_items'						=> __('All Occupations', 'JCA'),
+		'edit_item'						=> __('Edit Occupation', 'JCA'),
+		'view_item'						=> __('View Occupation', 'JCA'),
+		'update_item'					=> __('Update Occupation', 'JCA'),
+		'add_new_item'					=> __('Add New Occupation', 'JCA'),
+		'new_item_name'					=> __('New Occupation Name', 'JCA'),
+		'parent_item'					=> __('Parent Occupation', 'JCA'),
+		'parent_item_colon'				=> __('Parent Occupation:', 'JCA'),
+		'search_items'					=> __('Search Occupations', 'JCA'),
+		'popular_items'					=> __('Popular Occupations', 'JCA'),
+		'separate_items_with_commas'	=> __('Separate Occupations with commas', 'JCA'),
+		'add_or_remove_items'			=> __('Add or remove Occupations', 'JCA'),
+		'choose_from_most_used'			=> __('Choose from the most used Occupations', 'JCA'),
+		'not_found'						=> __('No Occupations found', 'JCA')
 	);
 	
 	$args = array(
@@ -69,6 +119,54 @@ function JCA_register_taxonomy_occupation() {
 		)
 	);
 	register_taxonomy('occupation', 'person', $args);
+
+}
+
+/**
+ * JCA_register_taxonomy_timezone
+ *
+ * Register taxonomy timezone
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function JCA_register_taxonomy_timezone() {
+
+	$labels = array(
+		'name'							=> __('Timezones', 'JCA'),
+		'singular_name'					=> __('Timezone', 'JCA'),
+		'menu_name'						=> __('Timezones', 'JCA'),
+		'all_items'						=> __('All Timezones', 'JCA'),
+		'edit_item'						=> __('Edit Timezone', 'JCA'),
+		'view_item'						=> __('View Timezone', 'JCA'),
+		'update_item'					=> __('Update Timezone', 'JCA'),
+		'add_new_item'					=> __('Add New Timezone', 'JCA'),
+		'new_item_name'					=> __('New Timezone Name', 'JCA'),
+		'parent_item'					=> __('Parent Timezone', 'JCA'),
+		'parent_item_colon'				=> __('Parent Timezone:', 'JCA'),
+		'search_items'					=> __('Search Timezones', 'JCA'),
+		'popular_items'					=> __('Popular Timezones', 'JCA'),
+		'separate_items_with_commas'	=> __('Separate Timezones with commas', 'JCA'),
+		'add_or_remove_items'			=> __('Add or remove Timezones', 'JCA'),
+		'choose_from_most_used'			=> __('Choose from the most used Timezones', 'JCA'),
+		'not_found'						=> __('No Timezones found', 'JCA')
+	);
+	
+	$args = array(
+		'labels'						=> $labels,
+		'public'						=> true,
+		'show_ui'						=> true,
+		'show_in_nav_menus'				=> true,
+		'show_tagcloud'					=> true,
+		'show_admin_column'				=> true,
+		'hierarchical'					=> true,
+		'query_var'						=> true,
+		'rewrite'						=> array(
+			'slug'						=> 'timezone',
+			'with_front'				=> false
+		)
+	);
+	register_taxonomy('timezone', 'timeline', $args);
 
 }
 
@@ -113,16 +211,33 @@ function taxonomies_filter_list() {
 
 	if ( ! is_admin() ) return;
 	
-	$screen = get_current_screen();
 	global $wp_query;
-	
-	if ( $screen->post_type == 'person' ) {
+
+	$screen		= get_current_screen();
+	$taxonomies	= array();
+
+	if ( $screen->post_type == 'community' ) {
+		$taxonomies = array(
+			'era'	=> 'Eras'
+		);
+	}
+	else if ( $screen->post_type == 'person' ) {
 		$taxonomies = array(
 			'occupation'	=> 'Occupations'
 		);
 	}
+	else if ( $screen->post_type == 'synagogue' ) {
+		$taxonomies = array(
+			'era'	=> 'Eras'
+		);
+	}
+	else if ( $screen->post_type == 'timeline' ) {
+		$taxonomies = array(
+			'timezone'	=> 'Timezones'
+		);
+	}
 
-	if ( $screen->post_type == 'person' ) {
+	if ($taxonomies) {
 		foreach ($taxonomies as $slug => $name) :
 		
 			$args = array(

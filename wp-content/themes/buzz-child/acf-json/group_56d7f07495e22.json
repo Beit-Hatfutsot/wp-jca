@@ -27,16 +27,9 @@
     "location": [
         [
             {
-                "param": "post_format",
+                "param": "post_type",
                 "operator": "==",
-                "value": "video"
-            }
-        ],
-        [
-            {
-                "param": "post_format",
-                "operator": "==",
-                "value": "audio"
+                "value": "post"
             }
         ]
     ],
@@ -45,8 +38,19 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "custom_fields",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1460359978
+    "modified": 1460470755
 }

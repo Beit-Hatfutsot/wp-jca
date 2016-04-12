@@ -22,6 +22,7 @@ function JCA_register_posttypes() {
 	JCA_register_posttype_community();
 	JCA_register_posttype_person();
 	JCA_register_posttype_synagogue();
+	JCA_register_posttype_timeline();
 
 }
 add_action('init', 'JCA_register_posttypes');
@@ -37,18 +38,18 @@ add_action('init', 'JCA_register_posttypes');
 function JCA_register_posttype_community() {
 
 	$labels = array(
-		'name'					=> 'Communities',
-		'singular_name'			=> 'Community',
-		'menu_name'				=> 'Communities',
-		'all_items'				=> 'All Communities',
-		'add_new'				=> 'Add New',
-		'add_new_item'			=> 'Add New Community',
-		'edit_item'				=> 'Edit Community',
-		'new_item'				=> 'New Community',
-		'view_item'				=> 'View Community',
-		'search_items'			=> 'Search Communities',
-		'not_found'				=> 'No Communities Found',
-		'not_found_in_trash'	=> 'No Communities Found in Trash'
+		'name'					=> __('Communities', 'JCA'),
+		'singular_name'			=> __('Community', 'JCA'),
+		'menu_name'				=> __('Communities', 'JCA'),
+		'all_items'				=> __('All Communities', 'JCA'),
+		'add_new'				=> __('Add New', 'JCA'),
+		'add_new_item'			=> __('Add New Community', 'JCA'),
+		'edit_item'				=> __('Edit Community', 'JCA'),
+		'new_item'				=> __('New Community', 'JCA'),
+		'view_item'				=> __('View Community', 'JCA'),
+		'search_items'			=> __('Search Communities', 'JCA'),
+		'not_found'				=> __('No Communities Found', 'JCA'),
+		'not_found_in_trash'	=> __('No Communities Found in Trash', 'JCA')
 	);
 	
 	$args = array(
@@ -85,18 +86,18 @@ function JCA_register_posttype_community() {
 function JCA_register_posttype_person() {
 
 	$labels = array(
-		'name'					=> 'Persons',
-		'singular_name'			=> 'Person',
-		'menu_name'				=> 'Persons',
-		'all_items'				=> 'All Persons',
-		'add_new'				=> 'Add New',
-		'add_new_item'			=> 'Add New Person',
-		'edit_item'				=> 'Edit Person',
-		'new_item'				=> 'New Person',
-		'view_item'				=> 'View Person',
-		'search_items'			=> 'Search Persons',
-		'not_found'				=> 'No Persons Found',
-		'not_found_in_trash'	=> 'No Persons Found in Trash'
+		'name'					=> __('Persons', 'JCA'),
+		'singular_name'			=> __('Person', 'JCA'),
+		'menu_name'				=> __('Persons', 'JCA'),
+		'all_items'				=> __('All Persons', 'JCA'),
+		'add_new'				=> __('Add New', 'JCA'),
+		'add_new_item'			=> __('Add New Person', 'JCA'),
+		'edit_item'				=> __('Edit Person', 'JCA'),
+		'new_item'				=> __('New Person', 'JCA'),
+		'view_item'				=> __('View Person', 'JCA'),
+		'search_items'			=> __('Search Persons', 'JCA'),
+		'not_found'				=> __('No Persons Found', 'JCA'),
+		'not_found_in_trash'	=> __('No Persons Found in Trash', 'JCA')
 	);
 	
 	$args = array(
@@ -108,7 +109,7 @@ function JCA_register_posttype_person() {
 		'show_in_nav_menus'		=> true,
 		'show_in_menu'			=> true,
 		'show_in_admin_bar'		=> true,
-		'menu_position'			=> 20,
+		'menu_position'			=> 21,
 		'menu_icon'				=> 'dashicons-businessman',
 		'capability_type'		=> 'post',
 		'hierarchical'			=> true,
@@ -133,18 +134,18 @@ function JCA_register_posttype_person() {
 function JCA_register_posttype_synagogue() {
 
 	$labels = array(
-		'name'					=> 'Synagogues',
-		'singular_name'			=> 'Synagogue',
-		'menu_name'				=> 'Synagogues',
-		'all_items'				=> 'All Synagogues',
-		'add_new'				=> 'Add New',
-		'add_new_item'			=> 'Add New Synagogue',
-		'edit_item'				=> 'Edit Synagogue',
-		'new_item'				=> 'New Synagogue',
-		'view_item'				=> 'View Synagogue',
-		'search_items'			=> 'Search Synagogues',
-		'not_found'				=> 'No Synagogues Found',
-		'not_found_in_trash'	=> 'No Synagogues Found in Trash'
+		'name'					=> __('Synagogues', 'JCA'),
+		'singular_name'			=> __('Synagogue', 'JCA'),
+		'menu_name'				=> __('Synagogues', 'JCA'),
+		'all_items'				=> __('All Synagogues', 'JCA'),
+		'add_new'				=> __('Add New', 'JCA'),
+		'add_new_item'			=> __('Add New Synagogue', 'JCA'),
+		'edit_item'				=> __('Edit Synagogue', 'JCA'),
+		'new_item'				=> __('New Synagogue', 'JCA'),
+		'view_item'				=> __('View Synagogue', 'JCA'),
+		'search_items'			=> __('Search Synagogues', 'JCA'),
+		'not_found'				=> __('No Synagogues Found', 'JCA'),
+		'not_found_in_trash'	=> __('No Synagogues Found in Trash', 'JCA')
 	);
 	
 	$args = array(
@@ -156,7 +157,7 @@ function JCA_register_posttype_synagogue() {
 		'show_in_nav_menus'		=> true,
 		'show_in_menu'			=> true,
 		'show_in_admin_bar'		=> true,
-		'menu_position'			=> 20,
+		'menu_position'			=> 22,
 		'menu_icon'				=> 'dashicons-building',
 		'capability_type'		=> 'post',
 		'hierarchical'			=> true,
@@ -167,5 +168,53 @@ function JCA_register_posttype_synagogue() {
 		'query_var'				=> true
 	);
 	register_post_type('synagogue', $args);
+
+}
+
+/**
+ * JCA_register_posttype_timeline
+ *
+ * Register post type timeline
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function JCA_register_posttype_timeline() {
+
+	$labels = array(
+		'name'					=> __('Timeline Items', 'JCA'),
+		'singular_name'			=> __('Timeline Item', 'JCA'),
+		'menu_name'				=> __('Timeline', 'JCA'),
+		'all_items'				=> __('All Timeline Items', 'JCA'),
+		'add_new'				=> __('Add New', 'JCA'),
+		'add_new_item'			=> __('Add New Timeline Item', 'JCA'),
+		'edit_item'				=> __('Edit Timeline Item', 'JCA'),
+		'new_item'				=> __('New Timeline Item', 'JCA'),
+		'view_item'				=> __('View Timeline Item', 'JCA'),
+		'search_items'			=> __('Search Timeline Items', 'JCA'),
+		'not_found'				=> __('No Timeline Items Found', 'JCA'),
+		'not_found_in_trash'	=> __('No Timeline Items Found in Trash', 'JCA')
+	);
+	
+	$args = array(
+		'labels'				=> $labels,
+		'public'				=> true,
+		'exclude_from_search'	=> false,
+		'publicly_queryable'	=> true,
+		'show_ui'				=> true,
+		'show_in_nav_menus'		=> true,
+		'show_in_menu'			=> true,
+		'show_in_admin_bar'		=> true,
+		'menu_position'			=> 23,
+		'menu_icon'				=> 'dashicons-schedule',
+		'capability_type'		=> 'post',
+		'hierarchical'			=> true,
+		'supports'				=> array('title', 'editor', 'revisions'),
+		'taxonomies'			=> array(),
+		'has_archive'			=> true,
+		'rewrite'				=> array('slug' => 'timeline', 'with_front' => false),
+		'query_var'				=> true
+	);
+	register_post_type('timeline', $args);
 
 }

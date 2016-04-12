@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: JCA\n"
-"POT-Creation-Date: 2016-04-12 12:26+0300\n"
-"PO-Revision-Date: 2016-04-12 12:26+0300\n"
+"POT-Creation-Date: 2016-04-12 16:48+0300\n"
+"PO-Revision-Date: 2016-04-12 16:52+0300\n"
 "Last-Translator: \n"
 "Language-Team: BH Online <nirg@bh.org.il>\n"
 "Language: he_IL\n"
@@ -15,13 +15,371 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
+#: functions/post-types.php:41 functions/post-types.php:43
+msgid "Communities"
+msgstr "קהילות"
+
+#: functions/post-types.php:42
+msgid "Community"
+msgstr "קהילה"
+
+#: functions/post-types.php:44
+msgid "All Communities"
+msgstr "כל הקהילות"
+
+#: functions/post-types.php:45 functions/post-types.php:93
+#: functions/post-types.php:141 functions/post-types.php:189
+msgid "Add New"
+msgstr "הוסף חדש"
+
+#: functions/post-types.php:46
+msgid "Add New Community"
+msgstr "הוסף קהילה חדשה"
+
+#: functions/post-types.php:47
+msgid "Edit Community"
+msgstr "ערוך קהילה"
+
+#: functions/post-types.php:48
+msgid "New Community"
+msgstr "קהילה חדשה"
+
+#: functions/post-types.php:49
+msgid "View Community"
+msgstr "הצג קהילה"
+
+#: functions/post-types.php:50
+msgid "Search Communities"
+msgstr "חפש קהילות"
+
+#: functions/post-types.php:51
+msgid "No Communities Found"
+msgstr "לא נמצאו קהילות"
+
+#: functions/post-types.php:52
+msgid "No Communities Found in Trash"
+msgstr "לא נמצאו קהילות בפח"
+
+#: functions/post-types.php:89 functions/post-types.php:91
+msgid "Persons"
+msgstr "אישים"
+
+#: functions/post-types.php:90
+msgid "Person"
+msgstr "איש"
+
+#: functions/post-types.php:92
+msgid "All Persons"
+msgstr "כל האישים"
+
+#: functions/post-types.php:94
+msgid "Add New Person"
+msgstr "הוסף איש חדש"
+
+#: functions/post-types.php:95
+msgid "Edit Person"
+msgstr "ערוך איש"
+
+#: functions/post-types.php:96
+msgid "New Person"
+msgstr "איש חדש"
+
+#: functions/post-types.php:97
+msgid "View Person"
+msgstr "הצג איש"
+
+#: functions/post-types.php:98
+msgid "Search Persons"
+msgstr "חפש אישים"
+
+#: functions/post-types.php:99
+msgid "No Persons Found"
+msgstr "לא נמצאו אישים"
+
+#: functions/post-types.php:100
+msgid "No Persons Found in Trash"
+msgstr "לא נמצאו אישים בפח"
+
+#: functions/post-types.php:137 functions/post-types.php:139
+#: functions/shortcodes.php:105
+msgid "Synagogues"
+msgstr "בתי כנסת"
+
+#: functions/post-types.php:138
+msgid "Synagogue"
+msgstr "בית כנסת"
+
+#: functions/post-types.php:140
+msgid "All Synagogues"
+msgstr "כל בתי הכנסת"
+
+#: functions/post-types.php:142
+msgid "Add New Synagogue"
+msgstr "הוסף בית כנסת חדש"
+
+#: functions/post-types.php:143
+msgid "Edit Synagogue"
+msgstr "ערוך בית כנסת"
+
+#: functions/post-types.php:144
+msgid "New Synagogue"
+msgstr "בית כנסת חדש"
+
+#: functions/post-types.php:145
+msgid "View Synagogue"
+msgstr "הצג בית כנסת"
+
+#: functions/post-types.php:146
+msgid "Search Synagogues"
+msgstr "חפש בתי כנסת"
+
+#: functions/post-types.php:147
+msgid "No Synagogues Found"
+msgstr "לא נמצאו בתי כנסת"
+
+#: functions/post-types.php:148
+msgid "No Synagogues Found in Trash"
+msgstr "לא נמצאו בתי כנסת בפח"
+
+#: functions/post-types.php:185
+msgid "Timeline Items"
+msgstr "פריטי ציר זמן"
+
+#: functions/post-types.php:186
+msgid "Timeline Item"
+msgstr "פריט ציר זמן"
+
+#: functions/post-types.php:187
+msgid "Timeline"
+msgstr "ציר זמן"
+
+#: functions/post-types.php:188
+msgid "All Timeline Items"
+msgstr "כל פריטי ציר הזמן"
+
+#: functions/post-types.php:190
+msgid "Add New Timeline Item"
+msgstr "הוסף פריט ציר זמן חדש"
+
+#: functions/post-types.php:191
+msgid "Edit Timeline Item"
+msgstr "ערוך פריט ציר זמן"
+
+#: functions/post-types.php:192
+msgid "New Timeline Item"
+msgstr "פריט ציר זמן חדש"
+
+#: functions/post-types.php:193
+msgid "View Timeline Item"
+msgstr "הצג פריט ציר זמן"
+
+#: functions/post-types.php:194
+msgid "Search Timeline Items"
+msgstr "חפש פריטי ציר זמן"
+
+#: functions/post-types.php:195
+msgid "No Timeline Items Found"
+msgstr "לא נמצאו פריטי ציר זמן"
+
+#: functions/post-types.php:196
+msgid "No Timeline Items Found in Trash"
+msgstr "לא נמצאו פריטי ציר זמן בפח"
+
 #: functions/shortcodes.php:68
 msgid "Change language"
 msgstr "שינוי שפה"
 
-#: functions/shortcodes.php:105
-msgid "Synagogues"
-msgstr "בתי כנסת"
+#: functions/taxonomies.php:40 functions/taxonomies.php:42
+msgid "Eras"
+msgstr "תקופות"
+
+#: functions/taxonomies.php:41
+msgid "Era"
+msgstr "תקופה"
+
+#: functions/taxonomies.php:43
+msgid "All Eras"
+msgstr "כל התקופות"
+
+#: functions/taxonomies.php:44
+msgid "Edit Era"
+msgstr "ערוך תקופה"
+
+#: functions/taxonomies.php:45
+msgid "View Era"
+msgstr "הצג תקופה"
+
+#: functions/taxonomies.php:46
+msgid "Update Era"
+msgstr "ערוך תקופה"
+
+#: functions/taxonomies.php:47
+msgid "Add New Era"
+msgstr "הוסף תקופה חדשה"
+
+#: functions/taxonomies.php:48
+msgid "New Era Name"
+msgstr "שם תקופה חדשה"
+
+#: functions/taxonomies.php:49
+msgid "Parent Era"
+msgstr "תקופת אב"
+
+#: functions/taxonomies.php:50
+msgid "Parent Era:"
+msgstr "תקופת אב:"
+
+#: functions/taxonomies.php:51
+msgid "Search Eras"
+msgstr "חפש תקופות"
+
+#: functions/taxonomies.php:52
+msgid "Popular Eras"
+msgstr "תקופות פופולריות"
+
+#: functions/taxonomies.php:53
+msgid "Separate Eras with commas"
+msgstr "תקופות מופרדות בפסיק"
+
+#: functions/taxonomies.php:54
+msgid "Add or remove Eras"
+msgstr "הוסף או הסר תקופות"
+
+#: functions/taxonomies.php:55
+msgid "Choose from the most used Eras"
+msgstr "בחר מתוך התקופות הנפוצות ביותר"
+
+#: functions/taxonomies.php:56
+msgid "No Eras found"
+msgstr "לא נמצאו תקופות"
+
+#: functions/taxonomies.php:88 functions/taxonomies.php:90
+msgid "Occupations"
+msgstr "תחומי עיסוק"
+
+#: functions/taxonomies.php:89
+msgid "Occupation"
+msgstr "תחום עיסוק"
+
+#: functions/taxonomies.php:91
+msgid "All Occupations"
+msgstr "כל תחומי העיסוק"
+
+#: functions/taxonomies.php:92
+msgid "Edit Occupation"
+msgstr "ערוך תחום עיסוק"
+
+#: functions/taxonomies.php:93
+msgid "View Occupation"
+msgstr "הצג תחום עיסוק"
+
+#: functions/taxonomies.php:94
+msgid "Update Occupation"
+msgstr "ערוך תחום עיסוק"
+
+#: functions/taxonomies.php:95
+msgid "Add New Occupation"
+msgstr "הוסף תחום עיסוק חדש"
+
+#: functions/taxonomies.php:96
+msgid "New Occupation Name"
+msgstr "שם תחום עיסוק חדש"
+
+#: functions/taxonomies.php:97
+msgid "Parent Occupation"
+msgstr "תחום עיסוק אב"
+
+#: functions/taxonomies.php:98
+msgid "Parent Occupation:"
+msgstr "תחום עיסוק אב:"
+
+#: functions/taxonomies.php:99
+msgid "Search Occupations"
+msgstr "חפש תחומי עיסוק"
+
+#: functions/taxonomies.php:100
+msgid "Popular Occupations"
+msgstr "תחומי עיסוק נפוצים"
+
+#: functions/taxonomies.php:101
+msgid "Separate Occupations with commas"
+msgstr "תחומי עיסוק מופרדים בפסיק"
+
+#: functions/taxonomies.php:102
+msgid "Add or remove Occupations"
+msgstr "הוסף או הסר תחומי עיסוק"
+
+#: functions/taxonomies.php:103
+msgid "Choose from the most used Occupations"
+msgstr "בחר מתוך תחומי העיסוק הנפוצים ביותר"
+
+#: functions/taxonomies.php:104
+msgid "No Occupations found"
+msgstr "לא נמצאו תחומי עיסוק"
+
+#: functions/taxonomies.php:136 functions/taxonomies.php:138
+msgid "Timezones"
+msgstr "אזורי זמן"
+
+#: functions/taxonomies.php:137
+msgid "Timezone"
+msgstr "אזור זמן"
+
+#: functions/taxonomies.php:139
+msgid "All Timezones"
+msgstr "כל אזורי הזמן"
+
+#: functions/taxonomies.php:140
+msgid "Edit Timezone"
+msgstr "ערוך אזור זמן"
+
+#: functions/taxonomies.php:141
+msgid "View Timezone"
+msgstr "הצג אזור זמן"
+
+#: functions/taxonomies.php:142
+msgid "Update Timezone"
+msgstr "ערוך אזור זמן"
+
+#: functions/taxonomies.php:143
+msgid "Add New Timezone"
+msgstr "הוסף אזור זמן חדש"
+
+#: functions/taxonomies.php:144
+msgid "New Timezone Name"
+msgstr "שם אזור זמן חדש"
+
+#: functions/taxonomies.php:145
+msgid "Parent Timezone"
+msgstr "אזור זמן אב"
+
+#: functions/taxonomies.php:146
+msgid "Parent Timezone:"
+msgstr "אזור זמן אב:"
+
+#: functions/taxonomies.php:147
+msgid "Search Timezones"
+msgstr "חפש אזורי זמן"
+
+#: functions/taxonomies.php:148
+msgid "Popular Timezones"
+msgstr "אזורי זמן נפוצים"
+
+#: functions/taxonomies.php:149
+msgid "Separate Timezones with commas"
+msgstr "אזורי זמן מופרדים בפסיק"
+
+#: functions/taxonomies.php:150
+msgid "Add or remove Timezones"
+msgstr "הוסף או הסר אזורי זמן"
+
+#: functions/taxonomies.php:151
+msgid "Choose from the most used Timezones"
+msgstr "בחר מתוך אזורי הזמן הנפוצים ביותר"
+
+#: functions/taxonomies.php:152
+msgid "No Timezones found"
+msgstr "לא נמצאו אזורי זמן"
 
 #: views/page/communities-list.php:21
 msgid "Communities Quick Links"
