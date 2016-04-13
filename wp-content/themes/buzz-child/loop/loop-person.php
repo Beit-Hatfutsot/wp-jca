@@ -54,7 +54,7 @@ if ($index !== false) {
 		$person .= '<div class="person-communities">' . implode( ', ', array_map(function($c) { return '<a href="' . get_the_permalink($c->ID) . '" target="_blank">' . $c->post_title . '</a>'; }, $communities) ) . '</div>';
 	}
 
-	$person .= '<div class="person-info">' . apply_filters( 'the_content', get_the_content() ) . '</div></div>';
+	$person .= '<div class="person-info clearfix">' . apply_filters( 'the_content', get_the_content() ) . '</div></div>';
 
 	// insert person into $pf_persons
 	$pf_persons[$index]['data'][] = $person;
