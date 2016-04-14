@@ -1,6 +1,6 @@
 {
     "key": "group_57022540d69ad",
-    "title": "Personalities",
+    "title": "Person Attributes",
     "fields": [
         {
             "key": "field_5702297ba70c7",
@@ -104,7 +104,8 @@
             ],
             "taxonomy": [],
             "filters": [
-                "search"
+                "search",
+                "taxonomy"
             ],
             "elements": "",
             "min": "",
@@ -142,5 +143,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1460470580
+    "modified": 1460548314
 }

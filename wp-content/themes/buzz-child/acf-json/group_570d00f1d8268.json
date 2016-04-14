@@ -1,6 +1,6 @@
 {
     "key": "group_570d00f1d8268",
-    "title": "Timezones",
+    "title": "Timezone Attributes",
     "fields": [
         {
             "key": "field_570d0164458ee",
@@ -36,7 +36,7 @@
             }
         ]
     ],
-    "menu_order": 7,
+    "menu_order": 8,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -44,5 +44,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1460470187
+    "modified": 1460548493
 }

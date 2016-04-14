@@ -1,6 +1,6 @@
 {
     "key": "group_570ce2915c4a9",
-    "title": "Timeline Items",
+    "title": "Timeline Item Attributes",
     "fields": [
         {
             "key": "field_570ce2fb6e7d2",
@@ -75,7 +75,7 @@
             }
         ]
     ],
-    "menu_order": 6,
+    "menu_order": 5,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -97,5 +97,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1460462535
+    "modified": 1460548818
 }
