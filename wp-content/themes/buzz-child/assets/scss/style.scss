@@ -172,6 +172,31 @@ body {
 	}
 }
 
+/**************/
+/* synagogues */
+/**************/
+
+.synagogue-list {
+	padding: 0;
+
+	li {
+		margin-bottom: 30px;
+		padding-bottom: 20px;
+		border-bottom: 1px dotted;
+		list-style: none;
+
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+
+		h3.synagogue-title {
+			margin: 0 0 10px;
+		}
+	}
+}
+
 /*****************/
 /* personalities */
 /*****************/

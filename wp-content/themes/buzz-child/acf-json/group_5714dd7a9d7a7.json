@@ -1,50 +1,53 @@
 {
-    "key": "group_56d7f07495e22",
-    "title": "Video\/Audio Posts",
+    "key": "group_5714dd7a9d7a7",
+    "title": "Synagogues Page Attributes",
     "fields": [
         {
-            "key": "field_56d7f0816ef89",
-            "label": "URL",
-            "name": "video-audio-posts_url",
-            "type": "text",
+            "key": "field_5714dd7aa1205",
+            "label": "Era",
+            "name": "acf-synagogues-era",
+            "type": "taxonomy",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "taxonomy": "era",
+            "field_type": "radio",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "post"
+                "value": "page-templates\/synagogue.php"
             }
         ]
     ],
-    "menu_order": 2,
+    "menu_order": 7,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
+        "excerpt",
         "custom_fields",
         "discussion",
         "comments",
         "revisions",
         "slug",
         "author",
+        "format",
         "featured_image",
         "categories",
         "tags",
@@ -52,5 +55,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1460984949
+    "modified": 1460986530
 }
