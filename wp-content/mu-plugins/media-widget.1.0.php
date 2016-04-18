@@ -140,7 +140,7 @@ class Media_Posts_Widget extends WP_Widget
 
 			if ( $posts_count ) {
 				echo $posts_list;
-				echo $instance['archive_link'] ? '<div class="archive-link"><a href="" class="button size-small">' . ( $instance['archive_link_text'] ? $instance['archive_link_text'] : __('View More', 'Media_Posts_Widget') ) . '</a></div>' : '';
+				echo $instance['archive_link'] ? '<div class="archive-link"><a href="' . $instance['archive_link'] . '" class="button size-small">' . ( $instance['archive_link_text'] ? $instance['archive_link_text'] : __('View More', 'Media_Posts_Widget') ) . '</a></div>' : '';
 			}
 			else {
 				echo '<li class="center no_posts">' . __('No posts found', 'Media_Posts_Widget') . '</li>';
