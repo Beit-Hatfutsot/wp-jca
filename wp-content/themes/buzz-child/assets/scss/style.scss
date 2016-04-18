@@ -288,6 +288,7 @@ body {
 
 		&.timezones {
 			li {
+				margin-bottom: 3px;
 				padding: 0 1px;
 
 				span {
@@ -314,6 +315,7 @@ body {
 				padding: 0 1px;
 
 				span {
+					padding-bottom: 6px;
 					line-height: 30px;
 					font-size: 14px;
 					color: #FFF;
@@ -325,6 +327,18 @@ body {
 					span {
 						background-color: #a97190;
 					}
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 10px;
+					left: 0;
+					width: 0;
+					height: 0;
+					border-top: 5px solid transparent;
+					border-left: 7px solid #FFF;
+					border-bottom: 5px solid transparent;
 				}
 
 				&:after {
@@ -590,6 +604,48 @@ body {
 	}
 }
 
+@media (min-width: 481px) and (max-width: 767px) {
+
+	/************/
+	/* timeline */
+	/************/
+
+	.timezones-wrapper {
+		ul {
+			&.timezones {
+				li {
+					width: 50% !important;
+
+					span {
+						line-height: 30px;
+						font-size: 18px;
+					}
+				}
+			}
+
+			&.sub-timezones {
+				li {
+					width: 33.33333333% !important;
+
+					span {
+						padding-bottom: 5px;
+						line-height: 25px;
+						font-size: 13px;
+					}
+
+					&:before {
+						top: 7.5px;
+					}
+
+					&:after {
+						height: 5px;
+					}
+				}
+			}
+		}
+	}
+}
+
 @media (max-width: 767px) {
 
 	/**********/
@@ -701,6 +757,45 @@ body {
 	.sticky-header {
 		.logo-text a {
 			font-size: 14px;
+		}
+	}
+
+	/************/
+	/* timeline */
+	/************/
+
+	.timezones-wrapper {
+		ul {
+			&.timezones {
+				li {
+					width: 50% !important;
+
+					span {
+						line-height: 30px;
+						font-size: 16px;
+					}
+				}
+			}
+
+			&.sub-timezones {
+				li {
+					width: 50% !important;
+
+					span {
+						padding-bottom: 5px;
+						line-height: 25px;
+						font-size: 12px;
+					}
+
+					&:before {
+						top: 7.5px;
+					}
+
+					&:after {
+						height: 5px;
+					}
+				}
+			}
 		}
 	}
 }
