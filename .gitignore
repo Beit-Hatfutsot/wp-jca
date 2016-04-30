@@ -1,7 +1,6 @@
+wp-config.php
 wp-content/themes/buzz-child/.sass-cache/
 wp-content/themes/buzz-child/node_modules/
 wp-content/uploads/
-wp-content/cache/
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
-wp-config.php
