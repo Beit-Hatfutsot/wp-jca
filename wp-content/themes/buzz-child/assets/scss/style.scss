@@ -430,10 +430,9 @@ body {
 	/**********/
 
 	.jca-credit {
-		margin: 0 auto;
-		padding-left: 75px;
-		max-width: 600px;
-		background: url("../images/logo.png") no-repeat 0 50%;
+		padding: 110px 15px 0;
+		background: url("../images/nf-logo.png") no-repeat 50% 0;
+		background-size: 720px;
 	}
 
 	/***************/
@@ -718,8 +717,8 @@ body {
 		/**********/
 
 		.jca-credit {
-			padding: 90px 0 0 !important;
-			background-position: 50% 0 !important;
+			padding-top: 15% !important;
+			background-size: 90% !important;
 		}
 
 		/***************/
