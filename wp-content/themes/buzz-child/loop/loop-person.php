@@ -16,7 +16,7 @@ $year_of_birth	= get_field('acf-person-year_of_birth');
 $year_of_death	= get_field('acf-person-year_of_death');
 
 if ( ! $first_name || ! $last_name )
-	continue;
+	return;
 
 $index = array_search( mb_substr($last_name, 0, 1, 'utf-8'), $pf_letters );
 
