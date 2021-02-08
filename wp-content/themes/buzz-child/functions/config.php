@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0
+ * @version		1.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -29,6 +29,7 @@ define( 'TEMPLATE',		get_stylesheet_directory_uri() );
 define( 'HOME',			home_url( '/' ) );
 define( 'CSS_DIR',		TEMPLATE . '/assets/css' );
 define( 'JS_DIR',		TEMPLATE . '/assets/js' );
+define( 'GTM_ID',		'GTM-KBLFCXC' );
 
 // languages
 function JCA_theme_setup() {

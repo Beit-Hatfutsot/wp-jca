@@ -15,6 +15,9 @@ require_once('functions/scripts-n-styles.php');
 // acf
 require_once('functions/acf.php');
 
+// gtm
+require_once('functions/gtm.php');
+
 // shortcodes
 require_once('functions/shortcodes.php');
 
