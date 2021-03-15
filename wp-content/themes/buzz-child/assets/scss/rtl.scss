@@ -14,8 +14,6 @@
 		.bh-logo {
 			left: 15px;
 			right: auto;
-			width: 188px;
-			background: url("../images/logo-bh-he.png") no-repeat 0 50%;
 		}
 	}
 }
@@ -236,17 +234,6 @@
 /**************/
 
 .shortcode {
-
-	/***********/
-	/* bh-logo */
-	/***********/
-
-	&.shortcode-bh-logo {
-		.bh-logo {
-			width: 188px;
-			background: url("../images/logo-bh-he.png") no-repeat 0 0;
-		}
-	}
 
 	/*********************/
 	/* language-switcher */

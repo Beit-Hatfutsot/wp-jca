@@ -27,11 +27,12 @@ body {
 
 		.bh-logo {
 			position: absolute;
-			top: 5px;
+			top: 12px;
 			right: 15px;
-			width: 191px;
-			height: 80px;
-			background: url("../images/logo-bh-en.png") no-repeat 100% 50%;
+			width: 160px;
+			height: 66px;
+			background: url("../images/anu-logo-v2.png") no-repeat;
+			background-size: contain;
 			cursor: pointer;
 		}
 	}
@@ -505,9 +506,10 @@ body {
 
 	&.shortcode-bh-logo {
 		.bh-logo {
-			width: 191px;
-			height: 80px;
-			background: url("../images/logo-bh-en.png") no-repeat 0 0;
+			width: 160px;
+			height: 66px;
+			background: url("../images/anu-logo-v2.png") no-repeat;
+			background-size: contain;
 		}
 	}
 
