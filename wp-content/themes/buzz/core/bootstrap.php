@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'POJO_CORE_VERSION', '1.6.1' );
+define( 'POJO_CORE_VERSION', '1.6.1.1' );
 
 define( 'POJO_CORE_DIRECTORY', get_template_directory() . '/core' );
 define( 'POJO_INCLUDES_DIRECTORY', get_template_directory() . '/includes' );

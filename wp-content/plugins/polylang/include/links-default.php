@@ -1,4 +1,7 @@
 <?php
+/**
+ * @package Polylang
+ */
 
 /**
  * Links model for default permalinks
@@ -8,17 +11,22 @@
  * @since 1.2
  */
 class PLL_Links_Default extends PLL_Links_Model {
+	/**
+	 * Tells this child class of PLL_Links_Model does not use pretty permalinks.
+	 *
+	 * @var bool
+	 */
 	public $using_permalinks = false;
 
 	/**
-	 * Adds language information to an url
-	 * links_model interface
+	 * Adds the language code in a url.
+	 * links_model interface.
 	 *
 	 * @since 1.2
 	 *
-	 * @param string $url  url to modify
-	 * @param object $lang language
-	 * @return string modified url
+	 * @param string       $url  The url to modify.
+	 * @param PLL_Language $lang The language object.
+	 * @return string Modified url.
 	 */
 	public function add_language_to_link( $url, $lang ) {
 		return empty( $lang ) || ( $this->options['hide_default'] && $this->options['default_lang'] == $lang->slug ) ? $url : add_query_arg( 'lang', $lang->slug, $url );
@@ -46,7 +54,7 @@ class PLL_Links_Default extends PLL_Links_Model {
 	 * @param string $url url to modify
 	 * @return string modified url
 	 */
-	function remove_paged_from_link( $url ) {
+	public function remove_paged_from_link( $url ) {
 		return remove_query_arg( 'paged', $url );
 	}
 
@@ -68,21 +76,27 @@ class PLL_Links_Default extends PLL_Links_Model {
 	 * links_model interface
 	 *
 	 * @since 1.2
+	 * @since 2.0 add $url argument
 	 *
+	 * @param string $url optional, defaults to current url
 	 * @return string language slug
 	 */
-	public function get_language_from_url() {
-		$pattern = '#lang=('.implode( '|', $this->model->get_languages_list( array( 'fields' => 'slug' ) ) ).')#';
-		return preg_match( $pattern, trailingslashit( $_SERVER['REQUEST_URI'] ), $matches ) ? $matches[1] : ''; // $matches[1] is the slug of the requested language
+	public function get_language_from_url( $url = '' ) {
+		if ( empty( $url ) ) {
+			$url = pll_get_requested_url();
+		}
+
+		$pattern = '#lang=(' . implode( '|', $this->model->get_languages_list( array( 'fields' => 'slug' ) ) ) . ')#';
+		return preg_match( $pattern, trailingslashit( $url ), $matches ) ? $matches[1] : ''; // $matches[1] is the slug of the requested language
 	}
 
 	/**
-	 * Returns the static front page url
+	 * Returns the static front page url.
 	 *
 	 * @since 1.8
 	 *
-	 * @param object $lang
-	 * @return string
+	 * @param PLL_Language $lang The language object.
+	 * @return string The static front page url.
 	 */
 	public function front_page_url( $lang ) {
 		if ( $this->options['hide_default'] && $lang->slug == $this->options['default_lang'] ) {

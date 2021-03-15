@@ -1,4 +1,7 @@
 <?php
+/**
+ * @package Polylang
+ */
 
 /**
  * A class to inform about the WPML compatibility module in Polylang settings
@@ -6,24 +9,33 @@
  * @since 1.8
  */
 class PLL_Settings_WPML extends PLL_Settings_Module {
+	/**
+	 * Stores the display order priority.
+	 *
+	 * @var int
+	 */
+	public $priority = 60;
 
 	/**
-	 * constructor
+	 * Constructor
 	 *
 	 * @since 1.8
 	 *
 	 * @param object $polylang polylang object
 	 */
 	public function __construct( &$polylang ) {
-		parent::__construct( $polylang, array(
-			'module'      => 'wpml',
-			'title'       => __( 'WPML Compatibility', 'polylang' ),
-			'description' => __( 'WPML compatibility mode of Polylang', 'polylang' ),
-		) );
+		parent::__construct(
+			$polylang,
+			array(
+				'module'      => 'wpml',
+				'title'       => __( 'WPML compatibility', 'polylang' ),
+				'description' => __( 'Polylang\'s WPML compatibility mode', 'polylang' ),
+			)
+		);
 	}
 
 	/**
-	 * tells if the module is active
+	 * Tells if the module is active
 	 *
 	 * @since 1.8
 	 *

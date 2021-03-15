@@ -1,4 +1,7 @@
 <?php
+/**
+ * @package Polylang
+ */
 
 /**
  * Links model base class when using pretty permalinks
@@ -6,17 +9,49 @@
  * @since 1.6
  */
 abstract class PLL_Links_Permalinks extends PLL_Links_Model {
+	/**
+	 * Tells this child class of PLL_Links_Model is for pretty permalinks.
+	 *
+	 * @var bool
+	 */
 	public $using_permalinks = true;
-	protected $index = 'index.php'; // need this before $wp_rewrite is created, also harcoded in wp-includes/rewrite.php
-	protected $root, $use_trailing_slashes;
+
+	/**
+	 * The name of the index file which is the entry point to all requests.
+	 * We need this before the global $wp_rewrite is created.
+	 * Also hardcoded in WP_Rewrite.
+	 *
+	 * @var string
+	 */
+	protected $index = 'index.php';
+
+	/**
+	 * The prefix for all permalink structures.
+	 *
+	 * @var string
+	 */
+	protected $root;
+
+	/**
+	 * Whether to add trailing slashes.
+	 *
+	 * @var bool
+	 */
+	protected $use_trailing_slashes;
+
+	/**
+	 * The name of the rewrite rules to always modify.
+	 *
+	 * @var string[]
+	 */
 	protected $always_rewrite = array( 'date', 'root', 'comments', 'search', 'author' );
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 *
 	 * @since 1.8
 	 *
-	 * @param object $model PLL_Model instance
+	 * @param PLL_Model $model PLL_Model instance.
 	 */
 	public function __construct( &$model ) {
 		parent::__construct( $model );
@@ -36,7 +71,15 @@ abstract class PLL_Links_Permalinks extends PLL_Links_Model {
 	 * @return string modified url
 	 */
 	public function remove_paged_from_link( $url ) {
-		return preg_replace( '#\/page\/[0-9]+\/?#', $this->use_trailing_slashes ? '/' : '', $url );
+		/**
+		 * Filter an url after the paged part has been removed
+		 *
+		 * @since 2.0.6
+		 *
+		 * @param string $modified_url The link to the first page
+		 * @param string $original_url  The link to the original paged page
+		 */
+		return apply_filters( 'pll_remove_paged_from_link', preg_replace( '#/page/[0-9]+/?#', $this->use_trailing_slashes ? '/' : '', $url ), $url );
 	}
 
 	/**
@@ -49,15 +92,24 @@ abstract class PLL_Links_Permalinks extends PLL_Links_Model {
 	 * @return string modified url
 	 */
 	public function add_paged_to_link( $url, $page ) {
-		return user_trailingslashit( trailingslashit( $url ) . 'page/' . $page, 'paged' );
+		/**
+		 * Filter an url after the paged part has been added
+		 *
+		 * @since 2.0.6
+		 *
+		 * @param string $modified_url The link to the paged page
+		 * @param string $original_url  The link to the original first page
+		 * @param int    $page         The page number
+		 */
+		return apply_filters( 'pll_add_paged_to_link', user_trailingslashit( trailingslashit( $url ) . 'page/' . $page, 'paged' ), $url, $page );
 	}
 
 	/**
-	 * Returns the home url
+	 * Returns the home url.
 	 *
 	 * @since 1.3.1
 	 *
-	 * @param object $lang PLL_Language object
+	 * @param PLL_Language $lang PLL_Language object.
 	 * @return string
 	 */
 	public function home_url( $lang ) {
@@ -65,12 +117,12 @@ abstract class PLL_Links_Permalinks extends PLL_Links_Model {
 	}
 
 	/**
-	 * Returns the static front page url
+	 * Returns the static front page url.
 	 *
 	 * @since 1.8
 	 *
-	 * @param object $lang
-	 * @return string
+	 * @param PLL_Language $lang The language object.
+	 * @return string The static front page url.
 	 */
 	public function front_page_url( $lang ) {
 		if ( $this->options['hide_default'] && $lang->slug == $this->options['default_lang'] ) {
@@ -85,13 +137,15 @@ abstract class PLL_Links_Permalinks extends PLL_Links_Model {
 	 * Prepares rewrite rules filters
 	 *
 	 * @since 1.6
+	 *
+	 * @return string[]
 	 */
 	public function get_rewrite_rules_filters() {
 		// Make sure we have the right post types and taxonomies
 		$types = array_values( array_merge( $this->model->get_translated_post_types(), $this->model->get_translated_taxonomies(), $this->model->get_filtered_taxonomies() ) );
 		$types = array_merge( $this->always_rewrite, $types );
 
-		/*
+		/**
 		 * Filter the list of rewrite rules filters to be used by Polylang
 		 *
 		 * @since 0.8.1

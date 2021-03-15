@@ -1,4 +1,7 @@
 <?php
+/**
+ * @package Polylang
+ */
 
 /**
  * Settings class for synchronization settings management
@@ -6,24 +9,33 @@
  * @since 1.8
  */
 class PLL_Settings_Sync extends PLL_Settings_Module {
+	/**
+	 * Stores the display order priority.
+	 *
+	 * @var int
+	 */
+	public $priority = 50;
 
 	/**
-	 * constructor
+	 * Constructor
 	 *
 	 * @since 1.8
 	 *
 	 * @param object $polylang polylang object
 	 */
 	public function __construct( &$polylang ) {
-		parent::__construct( $polylang, array(
-			'module'      => 'sync',
-			'title'       => __( 'Synchronization', 'polylang' ),
-			'description' => __( 'The synchronization options allow to maintain exact same values (or translations in the case of taxonomies and page parent) of meta content between the translations of a post or page.', 'polylang' ),
-		) );
+		parent::__construct(
+			$polylang,
+			array(
+				'module'      => 'sync',
+				'title'       => __( 'Synchronization', 'polylang' ),
+				'description' => __( 'The synchronization options allow to maintain exact same values (or translations in the case of taxonomies and page parent) of meta content between the translations of a post or page.', 'polylang' ),
+			)
+		);
 	}
 
 	/**
-	 * deactivates the module
+	 * Deactivates the module
 	 *
 	 * @since 1.8
 	 */
@@ -33,54 +45,58 @@ class PLL_Settings_Sync extends PLL_Settings_Module {
 	}
 
 	/**
-	 * displays the settings form
+	 * Displays the settings form
 	 *
 	 * @since 1.8
 	 */
-	protected function form() {?>
-		<ul class="pll-inline-block-list"><?php
+	protected function form() {
+		?>
+		<ul class="pll-inline-block-list">
+			<?php
 			foreach ( self::list_metas_to_sync() as $key => $str ) {
 				printf(
 					'<li><label><input name="sync[%s]" type="checkbox" value="1" %s /> %s</label></li>',
 					esc_attr( $key ),
-					in_array( $key, $this->options['sync'] ) ? 'checked="checked"' :'',
+					checked( in_array( $key, $this->options['sync'] ), true, false ),
 					esc_html( $str )
 				);
-			} ?>
-		</ul><?php
+			}
+			?>
+		</ul>
+		<?php
 	}
 
 	/**
-	 * sanitizes the settings before saving
+	 * Sanitizes the settings before saving
 	 *
 	 * @since 1.8
 	 *
 	 * @param array $options
 	 */
 	protected function update( $options ) {
-		$newoptions['sync'] = empty( $options['sync'] ) ? array() : array_keys( $options['sync'], 1 );
+		$newoptions = array( 'sync' => empty( $options['sync'] ) ? array() : array_keys( $options['sync'], 1 ) );
 		return $newoptions; // take care to return only validated options
 	}
 
 	/**
-	 * get the row actions
+	 * Get the row actions.
 	 *
 	 * @since 1.8
 	 *
-	 * @return array
+	 * @return string[] Row actions.
 	 */
 	protected function get_actions() {
 		return empty( $this->options['sync'] ) ? array( 'configure' ) : array( 'configure', 'deactivate' );
 	}
 
 	/**
-	 * list the post metas to synchronize
+	 * Get the list of synchronization settings.
 	 *
 	 * @since 1.0
 	 *
-	 * @return array
+	 * @return string[] Array synchronization options.
 	 */
-	static public function list_metas_to_sync() {
+	public static function list_metas_to_sync() {
 		return array(
 			'taxonomies'        => __( 'Taxonomies', 'polylang' ),
 			'post_meta'         => __( 'Custom fields', 'polylang' ),

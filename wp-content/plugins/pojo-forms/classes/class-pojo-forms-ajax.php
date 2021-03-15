@@ -32,7 +32,7 @@ class Pojo_Forms_Ajax {
 
 		$form = get_post( absint( $_POST['form_id'] ) );
 		
-		if ( ! $form || 'pojo_forms' !== $form->post_type || ! isset( $_POST['_nonce'] ) || ! wp_verify_nonce( $_POST['_nonce'], 'contact-form-send-' . $form->ID ) ) {
+		if ( ! $form || 'pojo_forms' !== $form->post_type  ) {
 			$return_array['message'] = Pojo_Forms_Messages::get_default_message( Pojo_Forms_Messages::INVALID_FORM );
 			wp_send_json_error( $return_array );
 		}
@@ -247,6 +247,7 @@ class Pojo_Forms_Ajax {
 				if ( empty( $email_reply_to ) )
 					$email_reply_to = $email_from;
 
+				$email_to = strtr( $email_to, $inline_shortcodes );
 				$email_subject = strtr( $email_subject, $inline_shortcodes );
 				$email_from_name = strtr( $email_from_name, $inline_shortcodes );
 				$email_from = strtr( $email_from, $inline_shortcodes );

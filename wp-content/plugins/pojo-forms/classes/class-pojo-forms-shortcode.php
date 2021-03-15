@@ -117,6 +117,9 @@ class Pojo_Forms_Shortcode {
 					'style' => implode( ';', $field_style_inline ),
 					'placeholder' => esc_attr( $field['placeholder'] ),
 				);
+
+				if ( $field['required'] )
+					$field_attributes['aria-required'] = 'true';
 				
 				if ( 'number' === $field['type'] ) {
 					$field_attributes['min'] = $field['number_min'];
@@ -124,10 +127,10 @@ class Pojo_Forms_Shortcode {
 				}
 				
 				if ( 'tel' === $field['type'] ) {
-					$field_attributes['pattern'] = '[0-9\.\+\-\(\)\*\#]+';
+					$field_attributes['pattern'] = '[0-9\.\+\-\(\)\*#]+';
 					$field_attributes['title'] = __( 'Only phone numbers allowed.', 'pojo-forms' );
 				}
-	
+
 				// Remove empty values
 				$field_attributes = array_filter( $field_attributes );
 	
@@ -155,6 +158,9 @@ class Pojo_Forms_Shortcode {
 					'class' => implode( ' ', $field_classes ),
 					'style' => implode( ';', $field_style_inline ),
 				);
+
+				if ( $field['required'] )
+					$field_attributes['aria-required'] = 'true';
 				
 				if ( $field['multiple'] )
 					$field_attributes['multiple'] = 'multiple';
@@ -200,6 +206,9 @@ class Pojo_Forms_Shortcode {
 					'class' => implode( ' ', $field_classes ),
 					'style' => implode( ';', $field_style_inline ),
 				);
+
+				if ( $field['required'] )
+					$field_attributes['aria-required'] = 'true';
 
 				// Remove empty values
 				$field_attributes = array_filter( $field_attributes );
@@ -254,6 +263,9 @@ class Pojo_Forms_Shortcode {
 					'rows' => '3',
 					'placeholder' =>  esc_attr( $field['placeholder'] ),
 				);
+
+				if ( $field['required'] )
+					$field_attributes['aria-required'] = 'true';
 
 				if ( ! empty( $field['textarea_rows'] ) )
 					$field_attributes['rows'] = $field['textarea_rows'];
@@ -389,7 +401,7 @@ class Pojo_Forms_Shortcode {
 				wp_enqueue_script( 'recaptcha-api' );
 				
 				$recaptcha_attributes = array(
-					'class' => 'g-recaptcha',
+					'class' => 'pojo-g-recaptcha',
 					'data-sitekey' => $recaptcha_site_key,
 				);
 				
@@ -439,7 +451,7 @@ class Pojo_Forms_Shortcode {
 		}
 		
 		$forms_html = sprintf(
-			'<form class="pojo-form pojo-form-%3$d pojo-form-ajax form-align-%1$s"%2$s action="" method="post" role="form">
+			'<form class="pojo-form pojo-form-%3$d pojo-form-ajax form-align-%1$s"%2$s action="" method="post">
 			<input type="hidden" name="action" value="pojo_form_contact_submit" />
 			<input type="hidden" name="form_id" value="%3$d" />
 			%4$s
@@ -449,7 +461,7 @@ class Pojo_Forms_Shortcode {
 			$form_align_text,
 			! empty( $form_style_inline ) ? ' style="' . implode( ';', $form_style_inline ) . '"' : '',
 			$form->ID,
-			wp_nonce_field( 'contact-form-send-' . $form->ID, '_nonce', true, false ),
+			wp_referer_field( false ),
 			$forms_html,
 			$edit_form_link
 		);

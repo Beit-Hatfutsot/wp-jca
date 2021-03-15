@@ -1,73 +1,77 @@
 <?php
+/**
+ * @package Polylang
+ */
 
 if ( ! class_exists( 'WP_List_Table' ) ) {
-	require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' ); // since WP 3.1
+	require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php'; // since WP 3.1
 }
 
 /**
- * a class to create a table to list all settings modules
+ * A class to create a table to list all settings modules
  *
  * @since 1.8
  */
 class PLL_Table_Settings extends WP_List_Table {
 
 	/**
-	 * constructor
+	 * Constructor
 	 *
 	 * @since 1.8
 	 */
-	function __construct() {
-		parent::__construct( array(
-			'plural'   => 'Settings', // do not translate ( used for css class )
-			'ajax'	   => false,
-		) );
+	public function __construct() {
+		parent::__construct(
+			array(
+				'plural' => 'Settings', // Do not translate ( used for css class )
+				'ajax'   => false,
+			)
+		);
 	}
 
 	/**
-	 * get the table classes for styling
+	 * Get the table classes for styling
 	 *
-	 * @øince 1.8
+	 * @since 1.8
 	 */
 	protected function get_table_classes() {
 		return array( 'wp-list-table', 'widefat', 'plugins', 'pll-settings' ); // get the style of the plugins list table + one specific class
 	}
 
 	/**
-	 * displays a single row
+	 * Displays a single row.
 	 *
-	 * @øince 1.8
+	 * @since 1.8
 	 *
-	 * @param object $item PLL_Settings_Module object
+	 * @param PLL_Settings_Module $item Settings module item.
+	 * @return void
 	 */
 	public function single_row( $item ) {
-		// classes to reuse css from the plugins list table
+		// Classes to reuse css from the plugins list table
 		$classes = $item->is_active() ? 'active' : 'inactive';
 		if ( $message = $item->get_upgrade_message() ) {
 			$classes .= ' update';
 		}
 
-		// display the columns
+		// Display the columns
 		printf( '<tr id="pll-module-%s" class="%s">', esc_attr( $item->module ), esc_attr( $classes ) );
 		$this->single_row_columns( $item );
 		echo '</tr>';
 
-		// display an upgrade message if there is any
+		// Display an upgrade message if there is any, reusing css from the plugins updates
 		if ( $message = $item->get_upgrade_message() ) {
-			printf( '
-				<tr class="plugin-update-tr">
-					<td colspan="3" class="plugin-update colspanchange">
-						<div class="update-message">%s</div>
-					</td>
+			printf(
+				'<tr class="plugin-update-tr">
+					<td colspan="3" class="plugin-update colspanchange">%s</td>
 				</tr>',
-				$message
+				sprintf( '<div class="update-message notice inline notice-warning notice-alt"><p>%s</p></div>', $message ) // phpcs:ignore WordPress.Security.EscapeOutput
 			);
 		}
 
-		// the settings if there are
+		// The settings if there are
 		// "inactive" class to reuse css from the plugins list table
 		if ( $form = $item->get_form() ) {
-			printf( '
-				<tr id="pll-configure-%s" class="pll-configure inactive inline-edit-row" style="display: none;">
+			printf(
+				'<tr id="pll-configure-%s" class="pll-configure inactive inline-edit-row" style="display: none;">
 					<td colspan="3">
 						<legend>%s</legend>
 						%s
@@ -76,61 +80,53 @@ class PLL_Table_Settings extends WP_List_Table {
 						</p>
 					</td>
 				</tr>',
-				esc_attr( $item->module ), esc_html( $item->title ), $form, implode( $item->get_buttons() )
+				esc_attr( $item->module ),
+				esc_html( $item->title ),
+				$form, // phpcs:ignore
+				implode( $item->get_buttons() ) // phpcs:ignore
 			);
 		}
 	}
 
 	/**
-	 * Generates the columns for a single row of the table
+	 * Generates the columns for a single row of the table.
 	 *
 	 * @since 1.8
 	 *
-	 * @param object $item The current item
+	 * @param PLL_Settings_Module $item Settings module item.
+	 * @return void
 	 */
 	protected function single_row_columns( $item ) {
-		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
+		$column_info = $this->get_column_info();
+		$columns     = $column_info[0];
+		$primary     = $column_info[3];
 
-		foreach ( $columns as $column_name => $column_display_name ) {
+		foreach ( array_keys( $columns ) as $column_name ) {
 			$classes = "$column_name column-$column_name";
 			if ( $primary === $column_name ) {
 				$classes .= ' column-primary';
 			}
 
-			if ( in_array( $column_name, $hidden ) ) {
-				$classes .= ' hidden';
-			}
-
 			if ( 'cb' == $column_name ) {
 				echo '<th scope="row" class="check-column">';
-				echo $this->column_cb( $item );
+				echo $this->column_cb( $item ); // phpcs:ignore WordPress.Security.EscapeOutput
 				echo '</th>';
-			}
-			else {
+			} else {
 				printf( '<td class="%s">', esc_attr( $classes ) );
-				echo $this->column_default( $item, $column_name );
+				echo $this->column_default( $item, $column_name ); // phpcs:ignore WordPress.Security.EscapeOutput
 				echo '</td>';
 			}
 		}
 	}
 
 	/**
-	 * added for backward compatibility with WP < 4.2
-	 *
-	 * @since 1.8.2
-	 *
-	 * @param object $item
-	 */
-	protected function column_cb( $item ) {}
-
-	/**
-	 * displays the item information in a column ( default case )
+	 * Displays the item information in a column (default case).
 	 *
 	 * @since 1.8
 	 *
-	 * @param object $item
-	 * @param string $column_name
-	 * @return string
+	 * @param PLL_Settings_Module $item        Settings module item.
+	 * @param string              $column_name Column name.
+	 * @return string The column name.
 	 */
 	protected function column_default( $item, $column_name ) {
 		if ( 'plugin-title' == $column_name ) {
@@ -140,17 +136,17 @@ class PLL_Table_Settings extends WP_List_Table {
 	}
 
 	/**
-	 * gets the list of columns
+	 * Gets the list of columns.
 	 *
 	 * @since 1.8
 	 *
-	 * @return array the list of column titles
+	 * @return string[] The list of column titles.
 	 */
 	public function get_columns() {
 		return array(
-			'cb'           => '', // for the 4px border inherited from plugins when the module is activated
-			'plugin-title' => __( 'Module', 'polylang' ), // plugin-title for styling
-			'description'  => __( 'Description', 'polylang' ),
+			'cb'           => '', // For the 4px border inherited from plugins when the module is activated
+			'plugin-title' => esc_html__( 'Module', 'polylang' ), // plugin-title for styling
+			'description'  => esc_html__( 'Description', 'polylang' ),
 		);
 	}
 
@@ -166,14 +162,33 @@ class PLL_Table_Settings extends WP_List_Table {
 	}
 
 	/**
-	 * prepares the list of items for displaying
+	 * Prepares the list of items for displaying
 	 *
 	 * @since 1.8
 	 *
-	 * @param array $items
+	 * @param PLL_Settings_Module[] $items Array of settings module items.
+	 * @return void
 	 */
 	public function prepare_items( $items = array() ) {
 		$this->_column_headers = array( $this->get_columns(), array(), $this->get_sortable_columns(), $this->get_primary_column_name() );
+
+		// Sort rows, lowest priority on top.
+		usort(
+			$items,
+			function( $a, $b ) {
+				return $a->priority > $b->priority ? 1 : -1;
+			}
+		);
 		$this->items = $items;
 	}
+
+	/**
+	 * Avoids displaying an empty tablenav
+	 *
+	 * @since 2.1
+	 *
+	 * @param string $which 'top' or 'bottom'
+	 * @return void
+	 */
+	protected function display_tablenav( $which ) {} // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 }
