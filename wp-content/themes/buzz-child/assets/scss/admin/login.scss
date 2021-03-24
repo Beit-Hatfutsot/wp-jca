@@ -1,0 +1,19 @@
+@import "../functions";
+
+@charset "utf-8";
+
+/****************/
+/* login screen */
+/****************/
+
+body.login {
+	background-color: transparent;
+
+	#login h1 a {
+		padding-top: 20px;
+		width: 320px;
+		height: 37px;
+		background: url("../../images/anu-logo-v1.png") no-repeat 50% 50%;
+		background-size: contain;
+	}
+}

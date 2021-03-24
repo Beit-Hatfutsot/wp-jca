@@ -12,6 +12,9 @@ require_once('functions/pojo_actions_n_filters.php');
 // scripts & styles
 require_once('functions/scripts-n-styles.php');
 
+// admin header section
+require_once('functions/admin/header.php');	// should be outside is_admin() because of the login screen
+
 // acf
 require_once('functions/acf.php');
 

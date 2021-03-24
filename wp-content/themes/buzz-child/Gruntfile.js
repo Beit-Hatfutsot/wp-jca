@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 			js: {
 				src: 'assets/js/general.js',
 				dest: '',
-				expand: true, 
+				expand: true,
 				ext: '.min.js',
 			}
 		},
@@ -25,10 +25,10 @@ module.exports = function(grunt) {
 
 				files: [{
 					cwd: 'assets/scss',
-					src: ['*.scss'],
+					src: ['*.scss', 'admin/*.scss'],
 					dest: 'assets/css/',
 					expand: true,
-					flatten: false, 
+					flatten: false,
 					ext: '.css',
 				}]
 			}
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			css: {
-				files: ['assets/scss/*.scss'],
+				files: ['assets/scss/*.scss', 'assets/scss/admin/*.scss'],
 				tasks: ['sass']
 			},
 

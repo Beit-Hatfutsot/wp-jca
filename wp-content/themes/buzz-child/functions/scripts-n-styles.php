@@ -4,10 +4,25 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		1.0
+ * @version		1.0.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+/**
+ * JCA_login_scripts_n_styles
+ *
+ * This function registers login screen scripts and styles
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function JCA_login_scripts_n_styles() {
+
+	wp_register_style( 'admin-login',	CSS_DIR . '/admin/login.css',	array(),	VERSION );
+
+}
+add_action('login_enqueue_scripts', 'JCA_login_scripts_n_styles');
 
 /**
  * JCA_register_scripts_n_styles
